@@ -13,7 +13,7 @@ const queryClient = new QueryClient()
 function App() {
   
   return (
-    <div className="bg-zinc-300 text-zinc-950 h-screen">
+    <div className="bg-zinc-300 text-zinc-950 min-h-full">
      <div  className="max-w-7xl m-auto text-center py-8">
      <QueryClientProvider client={queryClient}>
      <Weather />
