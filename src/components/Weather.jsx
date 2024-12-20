@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useFetchLocation } from "../hooks/useFetchLocation";
 import useGeoLocation from "../hooks/useGeoLocation";
+import WeatherCard from "./WeatherCard";
 
 const Weather = () => {
   const [city, setCity] = useState("");
@@ -12,6 +13,7 @@ const Weather = () => {
   } = useGeoLocation();
   const {
     data,
+    // eslint-disable-next-line no-unused-vars
     loading: apiLoading,
     error: apiError,
   } = useFetchLocation(geoData, searchQuery);
@@ -52,17 +54,7 @@ const Weather = () => {
           Submit
         </button>
       </form>
-      {currentWeather && (
-        <div className="mt-6 max-w-screen-sm m-auto mb-4">
-          <h2 className="text-3xl font-bold text-black mb-4">
-            Current Weather for {currentWeather.name}{" "}
-          </h2>
-          <p className="text-2xl font-bold">
-            {Math.round(currentWeather.main.temp)}&deg;C
-          </p>
-          <p className="capitalize">{currentWeather.weather[0].description}</p>
-        </div>
-      )}
+      {currentWeather && <WeatherCard data={currentWeather} />}
       {forecast && (
         <div className="bg-zinc-200 p-4 rounded-lg shadow-lg max-w-screen-sm m-auto">
           <h2 className="text-lg font-semibold mb-4">Forecast</h2>
@@ -70,7 +62,7 @@ const Weather = () => {
             {forecast.list.slice(0, 5).map((forecastList, index) => (
               <li key={index} className="bg-zinc-100 p-4 rounded-lg shadow-md ">
                 <p className="text-lg font-semibold">
-                  Forecast: {forecastList.dx_text}
+                  Forecast: {forecastList.dt_txt}
                 </p>
                 <p className="text-2xl font-bold">
                   {Math.round(forecastList.main.temp)}&deg;C

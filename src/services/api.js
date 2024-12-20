@@ -2,6 +2,7 @@ import axios from "axios";
 const WEATHER_URL = `https://api.openweathermap.org/data/2.5/`;
 const CURR_URL = `${WEATHER_URL}weather`;
 const FORECAST_URL = `${WEATHER_URL}forecast`;
+export const   WEATHER_CONDITIONS =" https://openweathermap.org/img/wn/"
 const API_KEY = `da0a70994cfe9192710bcd3360906f0c`;
 export async function fetchLocationByCoords(geoData) {
   if (!geoData?.longitude || !geoData?.latitude) return;
