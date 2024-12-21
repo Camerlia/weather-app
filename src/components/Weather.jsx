@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useFetchLocation } from "../hooks/useFetchLocation";
 import useGeoLocation from "../hooks/useGeoLocation";
 import WeatherCard from "./WeatherCard";
+import Forecast from "./Forecast";
 
 const Weather = () => {
   const [city, setCity] = useState("");
@@ -55,26 +56,7 @@ const Weather = () => {
         </button>
       </form>
       {currentWeather && <WeatherCard data={currentWeather} />}
-      {forecast && (
-        <div className="bg-zinc-200 p-4 rounded-lg shadow-lg max-w-screen-sm m-auto">
-          <h2 className="text-lg font-semibold mb-4">Forecast</h2>
-          <ul className="space-y-4">
-            {forecast.list.slice(0, 5).map((forecastList, index) => (
-              <li key={index} className="bg-zinc-100 p-4 rounded-lg shadow-md ">
-                <p className="text-lg font-semibold">
-                  Forecast: {forecastList.dt_txt}
-                </p>
-                <p className="text-2xl font-bold">
-                  {Math.round(forecastList.main.temp)}&deg;C
-                </p>
-                <p className="capitalize">
-                  Weather: {forecastList.weather[0].description}
-                </p>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+      {forecast && <Forecast forecast={forecast}/>}
     </div>
   );
 };
