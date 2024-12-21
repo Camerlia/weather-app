@@ -42,7 +42,7 @@ const Weather = () => {
     }
   }
   return (
-    <div className=" min-h-screen">
+    <div className="">
       <form onSubmit={handleSubmit}>
         <input
           className="p-2 border border-black/10 rounded-md"

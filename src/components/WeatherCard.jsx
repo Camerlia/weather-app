@@ -26,7 +26,7 @@ const WeatherCard = ({ data }) => {
         </div>
         
       </div>
-      <div className=' flex justify-between text-sm w-full max-w-md m-auto'>
+      <div className=' flex justify-between text-sm md:w-full max-w-md m-auto gap-4'>
         <div>
             Wind <br/> {Math.round(wind.speed)}
         </div>
