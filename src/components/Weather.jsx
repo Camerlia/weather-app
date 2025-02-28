@@ -14,7 +14,7 @@ const Weather = () => {
   } = useGeoLocation();
   const {
     data,
-    // eslint-disable-next-line no-unused-vars
+    
     loading: apiLoading,
     error: apiError,
   } = useFetchLocation(geoData, searchQuery);
